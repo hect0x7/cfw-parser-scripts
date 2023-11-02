@@ -9,13 +9,13 @@ module.exports.parse = async (raw, { axios, yaml, notify, console }, { name, url
     elemecdn
     ele.me
     wechat
+    download.windowsupdate.com
 
     `
     .split('\n')
     .map(domain => domain.trim())
-    .filter(domain => domain !== "")
+    .filter(domain => domain !== "") // 去除空行
 
-    // 去除空行和注释行
     const newRules = domains.map(domain => `DOMAIN-KEYWORD,${domain},${DIRECT}`)
     obj.rules = [...newRules, ...obj.rules]
 
